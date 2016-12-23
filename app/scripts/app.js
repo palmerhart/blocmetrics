@@ -24,3 +24,6 @@
         .module('blocJams', ['ui.router'])
         .config(config);
 })();
+//this is a test update
+
+
