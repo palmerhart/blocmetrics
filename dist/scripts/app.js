@@ -9,21 +9,24 @@
         $stateProvider
             .state('landing', {
                 url: '/',
+                controller: 'LandingCtrl as landing',
                 templateUrl: '/templates/landing.html'
             })
             .state('album', {
                 url: '/album',
+                controller: 'AlbumCtrl as Album',
                 templateUrl: '/templates/album.html'
             })
             .state('collection', {
                 url:'/collection',
-                templateUrl:'templates/collection.html',   
+                controller: 'CollectionCtrl as collection',
+                templateUrl:'templates/collection.html'   
             });
     }
     angular
         .module('blocJams', ['ui.router'])
         .config(config);
 })();
-//this is a test update
+
 
 
