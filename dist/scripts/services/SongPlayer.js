@@ -19,11 +19,9 @@
         * @desc Stops currently playing song and loads new audio file as currentBuzzObject
         * @param {Object} song
         */
-        
         var setSong = function(song) {
             if (currentBuzzObject) {
-                currentBuzzObject.stop();
-                SongPlayer.currentSong.playing = null;
+                stopSong(song);
             }
             
             currentBuzzObject = new buzz.sound(song.audioURL, {
@@ -55,10 +53,19 @@
         * @desc when users hits play the song they clicked will play and set value of song.playing to true
         * @param {Object} song
         */
-        
         var playSong = function(song) {
             currentBuzzObject.play();
             song.playing = true;            
+        };
+        
+        /**
+        * @function stopSong
+        * @desc when users pause the music will stop
+        * @param {Object} song
+        */
+        var stopSong = function(song) {
+            currentBuzzObject.stop();
+            song.playing = null;
         };
         
         /**
@@ -99,13 +106,32 @@
             currentSongIndex--;
             
             if (currentSongIndex < 0) {
-                currentBuzzObject.stop();
-                SongPlayer.currentSong.playing = null;
+                stopSong(SongPlayer.currentSong)
             } else {
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
                 playSong(song);
             }
+        };
+        
+        /**
+        * @function next
+        * @desc go to next song        
+        */  
+        SongPlayer.next = function() {
+            var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+            currentSongIndex++;
+            
+            var lastSongIndex = currentAlbum.songs.length -1;
+            
+            if(currentSongIndex >lastSongIndex) {
+                stopSong(SongPlayer.currentSong);
+            } else {
+                var song = currentAlbum.songs[currentSongIndex];
+                setSong(song);
+                playSong(song);
+            }
+            
         };
         
         return SongPlayer;        
