@@ -21,7 +21,7 @@
         */
         var setSong = function(song) {
             if (currentBuzzObject) {
-                stopSong(song);
+                stopSong(SongPlayer.currentSong);
             }
             
             currentBuzzObject = new buzz.sound(song.audioURL, {
