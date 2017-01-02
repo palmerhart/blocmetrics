@@ -31,6 +31,11 @@
                     return {width: percentString()};
                 };
                 
+                scope.thumbStyle = function() {
+                // updates the position of the seek bar thumb, use the ngStyle directive in the view to apply this style to the element
+                    return {left: percentString()};
+                };
+                
                 scope.onClickSeekBar = function (event) {
                     var percent = calculatePercent(seekBar, event);
                     scope.value = percent * scope.max;
@@ -39,6 +44,7 @@
                 scope.trackThumb = function () {
                     $document.bind('mousemove.thumb', function (event) {
                         var percent = calculatePercent(seekBar, event);
+                        //experiment with removing the $apply here
                         scope.$apply(function () {
                             scope.value = percent * scope.max;
                         });
