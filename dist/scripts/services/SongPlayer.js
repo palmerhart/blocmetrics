@@ -53,11 +53,21 @@
         * @type {object}
         */    
         SongPlayer.currentSong = null;
+        
         /**
         * @desc Current playback time (in seconds) of currently playing SongPlayer
         * @type {number}
         */
         SongPlayer.currentTime = null;
+        
+        SongPlayer.volume = 50;
+        
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+            currentBuzzObject.setVolume(volume);
+            }
+            SongPlayer.volume = volume;
+        };
         
         /**
         * @function playSong
