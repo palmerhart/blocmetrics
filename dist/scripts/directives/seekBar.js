@@ -45,9 +45,9 @@
                     $document.bind('mousemove.thumb', function (event) {
                         var percent = calculatePercent(seekBar, event);
                         //experiment with removing the $apply here
-                        scope.$apply(function () {
-                            scope.value = percent * scope.max;
-                        });
+                        
+                        scope.value = percent * scope.max;
+                        
                     });
                     
                     $document.bind('mouseup.thumb', function () {
