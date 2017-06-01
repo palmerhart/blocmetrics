@@ -21,8 +21,15 @@
                 url:'/collection',
                 controller: 'CollectionCtrl as collection',
                 templateUrl:'templates/collection.html'   
+            // add state for Metrics view    
+            })
+            .state('metric', {
+                url: '/metric',
+                controller: 'MetricCtrl as metric',
+                templateUrl: '/templates/metric.html'
             });
     }
+    
     angular
         .module('blocJams', ['ui.router'])
         .config(config);

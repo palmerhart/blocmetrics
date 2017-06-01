@@ -13,8 +13,10 @@
   "author": "Bloc Inc",
   "license": "ISC",
   "dependencies": {
+    "angular-moment": "^1.0.1",
     "angular-ui-router": "^0.3.2",
     "hapi": "~7.5.0",
+    "moment": "^2.18.1",
     "path": "^0.4.9"
   },
   "devDependencies": {
