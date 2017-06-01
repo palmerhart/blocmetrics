@@ -21,7 +21,6 @@
                 url:'/collection',
                 controller: 'CollectionCtrl as collection',
                 templateUrl:'templates/collection.html'   
-            // add state for Metrics view    
             })
             .state('metric', {
                 url: '/metric',
