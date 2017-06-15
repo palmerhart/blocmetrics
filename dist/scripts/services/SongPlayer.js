@@ -1,6 +1,8 @@
 (function() {
     function SongPlayer($rootScope, Fixtures) {
         var SongPlayer = {};
+        
+        SongPlayer.playCount = 0;
                 
         var currentAlbum = Fixtures.getAlbum();
                 
@@ -57,6 +59,7 @@
             if (SongPlayer.currentSong !== song) {
                 setSong(song);                
                 playSong(song);
+                SongPlayer.playCount += 1;
             } else if (SongPlayer.currentSong === song) {
                 if (currentBuzzObject.isPaused()) {
                     playSong(song);
@@ -75,7 +78,7 @@
             currentSongIndex--;
             
             if (currentSongIndex < 0) {
-                stopSong(SongPlayer.currentSong)
+                stopSong(SongPlayer.currentSong);
             } else {
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);

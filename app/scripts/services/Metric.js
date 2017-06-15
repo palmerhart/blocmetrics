@@ -1,18 +1,17 @@
 (function() {
-    function Metric($rootScope) {
-        $rootScope.songPlays = [];
+    function Metric($rootScope, SongPlayer) {
+        $rootScope.songPlays = ["test"];
+        $rootScope.test = "test txt";
         
         return {
-            //function that records a metric object by pusing it to the $rootScope array
-            
-            
+            //function that records a metric object by pushing it to the $rootScope array
             registerSongPlay: function(songObj) {
                 //add time to event register
-                songObj['playedAt'] = new Date();
+                songObj['playedAt'] = moment(new Date());
                 $rootScope.songPlays.push(songObj);
             },
             listSongsPlayed: function() {
-                var songs = [];
+                var songs = ["test5"];
                 angular.forEach($rootScope.songPlays, function(song) {
                     songs.push(song.title);
                 });
@@ -23,6 +22,6 @@
     
     angular
         .module('blocJams')
-        .service('Metric', ['$rootScope', Metric]);
+        .service('Metric', ['$rootScope', 'SongPlayer', Metric]);
 })();
 
