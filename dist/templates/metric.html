@@ -1,10 +1,11 @@
 <section ng-controller="MetricCtrl as metric">
     <div>
-        <p>Test Area</p>
+        <h3>Test Area (Metric stuff)</h3>
         <p>Total plays: {{ metric.songPlayer.playCount }} </p>
         <p>Current Song Title: {{ metric.songPlayer.currentSong.title}}</p>
-        <p>Top Song: tbd {{ }} </p>
-        <p>Song Plays Array: {{ metric.listSongsPlayed.songs }}</p>
+        <p>Current songObj: {{metric.phTest}}</p>
+        <p>Test from Metric.js Service: {{ metric.metric.songTest }} </p>
+        <p>Song Plays Array: {{ songPlays }}</p>
         <p>Page (song, album, artist) views</p>
     </div>
 </section>
