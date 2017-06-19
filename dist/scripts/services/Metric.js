@@ -3,9 +3,9 @@
         var Metric = {};
         
         $rootScope.songPlays = [];
-        Metric.songTest = "eureka!";
+        $rootScope.songs = [];
         
-        //inject Metric.js service into SongPlayer.js
+        Metric.songTest = "eureka!";
 
         //function that records a metric object by pushing it to the $rootScope array
         Metric.registerSongPlay = function(songObj) {
@@ -14,17 +14,19 @@
             $rootScope.songPlays.push(songObj);
         };
         
+        //function to push just names of songs played into "songs" array
         Metric.listSongsPlayed = function() {
-            var songs = ["test5"];
+            var songs = [];
             angular.forEach($rootScope.songPlays, function(song) {
-                songs.push(song.title);
+                $rootScope.songs.push(song.title);
             });
             return songs;
         };
         
-        Metric.topSong = function() {
-            
-        };
+    
+        //function to count total song plays
+        Metric.playCount = $rootScope.songPlays.length;
+        
         
         
         return Metric;    
@@ -34,4 +36,5 @@
         .module('blocJams')
         .service('Metric', ['$rootScope', Metric]);
 })();
+
 

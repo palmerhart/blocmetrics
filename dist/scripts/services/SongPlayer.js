@@ -66,6 +66,7 @@
                 }
             }
             Metric.registerSongPlay(song);
+            Metric.listSongsPlayed();
         };
                 
         SongPlayer.pause = function(song) {
@@ -85,6 +86,7 @@
                 setSong(song);
                 playSong(song);
             }
+            Metric.registerSongPlay(song);
         };
         
         SongPlayer.next = function() {
@@ -100,6 +102,7 @@
                 setSong(song);
                 playSong(song);
             }
+            Metric.registerSongPlay(song);
             
         };
         
