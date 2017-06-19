@@ -1,5 +1,5 @@
 (function() {
-    function SongPlayer($rootScope, Fixtures) {
+    function SongPlayer($rootScope, Fixtures, Metric) {
         var SongPlayer = {};
         
         SongPlayer.playCount = 0;
@@ -65,6 +65,7 @@
                     playSong(song);
                 }
             }
+            Metric.registerSongPlay(song);
         };
                 
         SongPlayer.pause = function(song) {
@@ -113,6 +114,6 @@
     
     angular
         .module('blocJams')
-        .factory('SongPlayer', ['$rootScope', 'Fixtures', SongPlayer]);
+        .factory('SongPlayer', ['$rootScope', 'Fixtures', 'Metric',SongPlayer]);
 })();
 

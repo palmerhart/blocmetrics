@@ -1,20 +1,11 @@
 (function() {
-    function Metric($rootScope, SongPlayer) {
+    function Metric($rootScope) {
         var Metric = {};
         
         $rootScope.songPlays = [];
+        Metric.songTest = "eureka!";
         
-        var currentSong = SongPlayer.currentSong;
-        var songTest = "eureka!";
-        
-        
-        //establish current song as SongObj
-        //setSongObj: function() {
-        //    if (SongPlayer.currentSong === "") {
-        //       songObj = {title: "no title", artist: "no artist"};
-        //    } else {
-        //        songObj = {title: currentSong.title, artist: currentSong.artist};
-        //}
+        //inject Metric.js service into SongPlayer.js
 
         //function that records a metric object by pushing it to the $rootScope array
         Metric.registerSongPlay = function(songObj) {
@@ -31,12 +22,16 @@
             return songs;
         };
         
+        Metric.topSong = function() {
+            
+        };
+        
         
         return Metric;    
     }
     
     angular
         .module('blocJams')
-        .service('Metric', ['$rootScope', 'SongPlayer', Metric]);
+        .service('Metric', ['$rootScope', Metric]);
 })();
 
