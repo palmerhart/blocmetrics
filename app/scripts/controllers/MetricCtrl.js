@@ -1,11 +1,12 @@
 (function() {
-    function MetricCtrl($rootScope, SongPlayer, Fixtures, Metric) {
-        this.albumData = Fixtures.getAlbum();
-        this.songPlayer = SongPlayer;
-        this.metric = Metric;
+    function MetricCtrl($scope, SongPlayer, Fixtures, Metric) {
+        $scope.albumData = Fixtures.getAlbum();
+        $scope.songPlayer = SongPlayer;
+        $scope.metric = Metric;
+        
     }
     
     angular
         .module('blocJams')
-        .controller('MetricCtrl', ['$rootScope','SongPlayer', 'Fixtures', 'Metric', MetricCtrl]);
+        .controller('MetricCtrl', ['$scope','SongPlayer', 'Fixtures', 'Metric', MetricCtrl]);
 })();

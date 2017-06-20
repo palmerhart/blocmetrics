@@ -4,9 +4,14 @@
         <p>Total plays: {{ metric.songPlayer.playCount }} </p>
         <p>Current Song Title: {{ metric.songPlayer.currentSong.title}}</p>
         <p>Current songObj: "tbd" </p>
-        <p>Test from Metric.js Service (should say "eureka"): {{ metricCtrl.metric.songTest }} </p>
-        <p>Song Plays Array: {{ songPlays }}</p>
-        <p>Play Count: {{metricCtrl.metric.playCount}}</p>
-        <p>List Song Plays: {{ songs2 }}</p>
+        <p>Test from Metric.js Service (should say "eureka"): {{ metric.songTest }} </p>
+        <p>Song Plays Array: {{ metric.songPlays }}</p>
+        <p>Play Count: {{metric.playCount}}</p>
+        <p>List Song Plays: {{ }}</p>
+        <p>Sorted Plays: {{metric.songPlayCounts}}</p>
+        
+        <tr ng-repeat= "(title, count) in metric.songPlayCounts">
+            <td>{{title}}</td> <td>{{count}}</td>
+        </tr>
     </div>
 </section>

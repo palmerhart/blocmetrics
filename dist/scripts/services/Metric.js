@@ -2,8 +2,9 @@
     function Metric($rootScope) {
         var Metric = {};
         
-        $rootScope.songPlays = [];
-        $rootScope.songs = [];
+        Metric.songPlays = [];
+        Metric.songs = [];
+        Metric.songPlayCounts = {};
         
         Metric.songTest = "eureka!";
 
@@ -11,22 +12,40 @@
         Metric.registerSongPlay = function(songObj) {
             //add time to event register
             songObj['playedAt'] = moment(new Date());
-            $rootScope.songPlays.push(songObj);
+            this.songPlays.push(songObj);
+            this.sortedPlays();
         };
         
         //function to push just names of songs played into "songs" array
-        Metric.listSongsPlayed = function() {
-            var songs = [];
-            angular.forEach($rootScope.songPlays, function(song) {
-                $rootScope.songs.push(song.title);
-            });
-            return songs;
-        };
+        //Metric.listSongsPlayed = function() {
+        //    var songs = [];
+        //    angular.forEach(this.songPlays, function(song) {
+        //        this.songs.push(song.title);
+        //    });
+        //    return songs;
+        //};
         
     
         //function to count total song plays
-        Metric.playCount = $rootScope.songPlays.length;
+        //Metric.playCount = this.songPlays.length;
         
+        
+        //for each loop w/ logic to compute needed data
+        //playcount for each song, map in array of objects w/ song title & playcount
+        
+        Metric.sortedPlays = function() {
+            var songsByPlayCount = {};
+            this.songPlays.forEach(function(singleSong){
+                //if exists +1, if does not exist create and = 1
+                var songTitle = singleSong.title;
+                if (songsByPlayCount[songTitle]) {
+                    songsByPlayCount[songTitle]++;
+                }  else  {
+                    songsByPlayCount[songTitle] = 1;
+                }
+            });
+            this.songPlayCounts = songsByPlayCount;
+        };
         
         
         return Metric;    
