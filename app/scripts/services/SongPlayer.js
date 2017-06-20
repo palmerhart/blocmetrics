@@ -66,8 +66,8 @@
                 }
             }
             Metric.registerSongPlay(song);
-            Metric.listSongsPlayed();
-            Metric.sortedPlays();
+            //Metric.listSongsPlayed();
+            //Metric.sortedPlays();
         };
                 
         SongPlayer.pause = function(song) {
