@@ -1,16 +1,12 @@
 <section ng-controller="MetricCtrl as metricCtrl">
     <div>
         <h3>Test Area (Metric stuff)</h3>
-        <p>Total plays: {{ metric.songPlayer.playCount }} </p>
-        <p>Current Song Title: {{ metric.songPlayer.currentSong.title}}</p>
-        <p>Current songObj: "tbd" </p>
-        <p>Test from Metric.js Service (should say "eureka"): {{ metric.songTest }} </p>
         <p>Song Plays Array: {{ metric.songPlays }}</p>
-        <p>Play Count: {{metric.playCount}}</p>
-        <p>List Song Plays: {{ }}</p>
         <p>Sorted Plays: {{metric.songPlayCounts}}</p>
+        <p>Running Count: {{metric.runningCount}}</p>
         
-        <tr ng-repeat= "(title, count) in metric.songPlayCounts">
+        
+        <tr ng-repeat= "(title, count) in metric.songPlayCount">
             <td>{{title}}</td> <td>{{count}}</td>
         </tr>
     </div>

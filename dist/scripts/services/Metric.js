@@ -5,6 +5,7 @@
         Metric.songPlays = [];
         Metric.songs = [];
         Metric.songPlayCounts = {};
+        Metric.runningCount = 0;
         
         Metric.songTest = "eureka!";
 
@@ -14,21 +15,8 @@
             songObj['playedAt'] = moment(new Date());
             this.songPlays.push(songObj);
             this.sortedPlays();
+            this.runningCount++;
         };
-        
-        //function to push just names of songs played into "songs" array
-        //Metric.listSongsPlayed = function() {
-        //    var songs = [];
-        //    angular.forEach(this.songPlays, function(song) {
-        //        this.songs.push(song.title);
-        //    });
-        //    return songs;
-        //};
-        
-    
-        //function to count total song plays
-        //Metric.playCount = this.songPlays.length;
-        
         
         //for each loop w/ logic to compute needed data
         //playcount for each song, map in array of objects w/ song title & playcount
@@ -43,10 +31,10 @@
                 }  else  {
                     songsByPlayCount[songTitle] = 1;
                 }
+                //songsByPlayCount.sort(sort_by('songTitle',true,parseInt));
             });
             this.songPlayCounts = songsByPlayCount;
         };
-        
         
         return Metric;    
     }
