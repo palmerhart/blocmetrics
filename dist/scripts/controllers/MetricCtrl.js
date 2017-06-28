@@ -3,7 +3,7 @@
         $scope.albumData = Fixtures.getAlbum();
         $scope.songPlayer = SongPlayer;
         $scope.metric = Metric;
-        
+       
     }
     
     angular

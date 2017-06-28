@@ -1,13 +1,15 @@
-<section ng-controller="MetricCtrl as metricCtrl">
+<section ng-controller="MetricCtrl as metric">
     <div>
         <h3>Test Area (Metric stuff)</h3>
         <p>Song Plays Array: {{ metric.songPlays }}</p>
         <p>Sorted Plays: {{metric.songPlayCounts}}</p>
         <p>Running Count: {{metric.runningCount}}</p>
         
+        <nvd3 options="options" data="data"></nvd3>
         
         <tr ng-repeat= "(title, count) in metric.songPlayCount">
             <td>{{title}}</td> <td>{{count}}</td>
         </tr>
+        
     </div>
 </section>
