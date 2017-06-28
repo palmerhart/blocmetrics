@@ -36,7 +36,7 @@
             this.songPlayCounts = songsByPlayCount;
         };
         
-        Metric.options =  {
+        Metric.options = {
             chart: {
                 type: 'pieChart',
                 height: 500,
@@ -57,7 +57,7 @@
             }
         };
 
-        Metric.data  [
+        Metric.data = [
             {
                 key: "One",
                 y: 5
