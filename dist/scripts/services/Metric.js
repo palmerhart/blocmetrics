@@ -3,7 +3,6 @@
         var Metric = {};
         
         Metric.songPlays = [];
-        Metric.songs = [];
         Metric.songPlayCounts = {};
         Metric.runningCount = 0;
         
@@ -36,7 +35,7 @@
             this.songPlayCounts = songsByPlayCount;
         };
         
-        Metric.options = {
+        $rootScope.options = {
             chart: {
                 type: 'pieChart',
                 height: 500,
@@ -57,36 +56,29 @@
             }
         };
 
-        Metric.data = [
+        $rootScope.data = [
             {
-                key: "One",
-                y: 5
+                key: "Blue",
+                y: 29
             },
             {
-                key: "Two",
+                key: "Green",
                 y: 2
             },
             {
-                key: "Three",
+                key: "Red",
                 y: 9
             },
             {
-                key: "Four",
+                key: "Pink",
                 y: 7
             },
             {
-                key: "Five",
+                key: "Magenta",
                 y: 4
-            },
-            {
-                key: "Six",
-                y: 3
-            },
-            {
-                key: "Seven",
-                y: .5
             }
         ];
+        
         
         return Metric;    
     }

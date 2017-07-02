@@ -3,7 +3,6 @@
         var Metric = {};
         
         Metric.songPlays = [];
-        Metric.songs = [];
         Metric.songPlayCounts = {};
         Metric.runningCount = 0;
         
@@ -35,6 +34,51 @@
             });
             this.songPlayCounts = songsByPlayCount;
         };
+        
+        $rootScope.options = {
+            chart: {
+                type: 'pieChart',
+                height: 500,
+                x: function(d){return d.key;},
+                y: function(d){return d.y;},
+                showLabels: true,
+                duration: 500,
+                labelThreshold: 0.01,
+                labelSunbeamLayout: true,
+                legend: {
+                    margin: {
+                        top: 5,
+                        right: 35,
+                        bottom: 5,
+                        left: 0
+                    }
+                }
+            }
+        };
+
+        $rootScope.data = [
+            {
+                key: "Blue",
+                y: 29
+            },
+            {
+                key: "Green",
+                y: 2
+            },
+            {
+                key: "Red",
+                y: 9
+            },
+            {
+                key: "Pink",
+                y: 7
+            },
+            {
+                key: "Magenta",
+                y: 4
+            }
+        ];
+        
         
         return Metric;    
     }

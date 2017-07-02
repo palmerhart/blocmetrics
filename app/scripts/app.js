@@ -30,7 +30,7 @@
     }
     
     angular
-        .module('blocJams', ['ui.router'])
+        .module('blocJams', ['nvd3','ui.router'])
         .config(config);
 })();
 
