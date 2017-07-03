@@ -117,3 +117,7 @@ body {
 .clearfix::after{
     clear:both;
 }
+
+#chart svg {
+  height: 400px;
+}

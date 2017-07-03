@@ -4,8 +4,28 @@
         <p>Song Plays Array: {{ metric.songPlays }}</p>
         <p>Sorted Plays: {{metric.songPlayCounts}}</p>
         <p>Running Count: {{metric.runningCount}}</p>
+        <p>PieChart Array2: {{metric.pieArray2}}</p>
         
-        <nvd3  options="options" data="data"></nvd3>
+        
+        <div class="row">
+            <div class="col-md-6 centered">
+                
+                <nvd3-scatter-chart
+                    data="scatterData"
+                    id="exampleId"
+                    width="550"
+                    height="400"
+                    yAxisTickFormat="yAxisTickFormatFunction()"
+                    xAxisTickFormat="xAxisTickFormatFunction()">
+        	        <svg></svg>
+                </nvd3-scatter-chart>
+                
+            </div>
+            <div class="col-md-6">
+                <nvd3 class="center-block" options="options" data="pieData2"></nvd3>
+            </div>
+        </div>
         
     </div>
 </section>
+
