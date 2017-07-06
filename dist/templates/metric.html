@@ -1,27 +1,21 @@
 <section ng-controller="MetricCtrl as metric">
     <div>
-        <h3>Test Area (Metric stuff)</h3>
-        <p>Song Plays Array: {{ metric.songPlays }}</p>
-        <p>Sorted Plays: {{metric.songPlayCounts}}</p>
-        <p>Running Count: {{metric.runningCount}}</p>
-        <p>PieChart Array2: {{metric.pieArray2}}</p>
+        <!--<h3>Test Area (Metric stuff)</h3>-->
+        <!--<p>Song Plays Array: {{ metric.songPlays }}</p>-->
+        <!--<p>Sorted Plays: {{metric.songPlayCounts}}</p>-->
+        <!--<p>Running Count: {{metric.runningCount}}</p>-->
+        <!--<p>PieChart Array2: {{metric.pieArray2}}</p>-->
+        <!--<p>scatterData: {{scatterData}}</p>-->
+        <!--<p>test seconds: {{metric.testSeconds}}</p>-->
+        <!--<p>test minute: {{metric.testMinutes}}</p>-->
         
-        
-        <div class="row">
+        <div class="row metric-background">
             <div class="col-md-6 centered">
-                
-                <nvd3-scatter-chart
-                    data="scatterData"
-                    id="exampleId"
-                    width="550"
-                    height="400"
-                    yAxisTickFormat="yAxisTickFormatFunction()"
-                    xAxisTickFormat="xAxisTickFormatFunction()">
-        	        <svg></svg>
-                </nvd3-scatter-chart>
-                
+                <h3 class="text-center">What's playing now....by the minute, by the second!</h3>
+                <nvd3 class="center-block metric-background" options="scatterOptions" data="scatterData"></nvd3>
             </div>
             <div class="col-md-6">
+                <h3 class="text-center">Hot Songs by Play Count!</h3>
                 <nvd3 class="center-block" options="options" data="pieData2"></nvd3>
             </div>
         </div>
